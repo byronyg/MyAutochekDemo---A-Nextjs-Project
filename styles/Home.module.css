@@ -12,6 +12,13 @@
   align-items: center;
 }
 
+.topbar {
+  width: 100vw;
+  background-color: blue;
+  height: '10px';
+  top: 0;
+}
+
 .footer {
   display: flex;
   flex: 1;

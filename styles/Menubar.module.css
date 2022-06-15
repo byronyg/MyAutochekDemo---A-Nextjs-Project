@@ -1,0 +1,8 @@
+.menulist {
+    display: flex;
+    background: #f8f9fa;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    width: 90vw;
+  }

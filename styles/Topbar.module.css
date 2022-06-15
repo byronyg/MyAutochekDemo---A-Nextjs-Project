@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    background-color: #0a1133;
+    width: 100vw;
+    max-height: '35px';
+    color: #fff;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    width: 100vw;
+  }
