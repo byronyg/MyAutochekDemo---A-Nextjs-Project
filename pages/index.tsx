@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Footer from "../components/Footer";
 import { Iconbar } from "../components/Iconbar";
 import Imageslider from "../components/Imageslider";
 import Menubar from "../components/Menubar";
@@ -25,6 +26,9 @@ const Home: NextPage = () => {
 
       {/*Image Slider */}
       <Imageslider />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

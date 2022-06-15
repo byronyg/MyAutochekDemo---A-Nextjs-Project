@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 60px;
+    padding-top: 15px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 10%);;
+  }
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+}
+.search input {
+  font-family: Avenir,sans-serif;
+  background: #ededed;
+  border-radius: 4px;
+  border: 0;
+  height: 40px;
+  width: 100%;
+}
+.search button {
+  background-color: #ffc107;
+  font-family: Avenir,sans-serif;
+  cursor: pointer;
+  margin-left: 0.8em;
+  border-radius: 4px;
+  border: 0;
+  height: 38px;
+  width: 100px;
+}
+.cart button {
+  background-color: #0a1133;
+  font-family: Avenir,sans-serif;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 0.8em;
+  border-radius: 4px;
+  border: 0;
+  height: 38px;
+  width: 60px;
+}
