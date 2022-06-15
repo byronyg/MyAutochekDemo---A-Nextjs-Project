@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Iconbar } from "../components/Iconbar";
+import Imageslider from "../components/Imageslider";
 import Menubar from "../components/Menubar";
 import Topbar from "../components/Topbar";
 import styles from "../styles/Home.module.css";
@@ -21,6 +22,9 @@ const Home: NextPage = () => {
 
       {/* Menubar */}
       <Menubar />
+
+      {/*Image Slider */}
+      <Imageslider />
     </div>
   );
 };
