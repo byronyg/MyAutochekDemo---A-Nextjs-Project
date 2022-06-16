@@ -1,43 +1,30 @@
+import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import car1 from "../assets/car1.jpeg";
+import car2 from "../assets/2.jpeg";
+import car3 from "../assets/3.jpeg";
 const Imageslider = () => {
   return (
     <div>
       <Carousel>
         <div>
-          <img
+          {/* <img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20211213172224/1.png"
             alt="image1"
+          /> */}
+          <Image
+            src={car1}
+            layout="responsive"
+            alt="image1"
+            placeholder="blur"
           />
-          <p className="legend">Image 1</p>
         </div>
         <div>
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20211213172225/2.png"
-            alt="image2"
-          />
-          <p className="legend">Image 2</p>
+          <Image src={car2} layout="responsive" alt="image1" />
         </div>
         <div>
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20211213172226/3.png"
-            alt="image3"
-          />
-          <p className="legend">Image 3</p>
-        </div>
-        <div>
-          <img
-            src="/https://media.geeksforgeeks.org/wp-content/uploads/20211213172228/4.png"
-            alt="image4"
-          />
-          <p className="legend">Image 4</p>
-        </div>
-        <div>
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20211213172229/5.png"
-            alt="image5"
-          />
-          <p className="legend">Image 5</p>
+          <Image src={car3} layout="responsive" alt="image1" />
         </div>
       </Carousel>
     </div>

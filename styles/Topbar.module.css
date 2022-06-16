@@ -14,3 +14,7 @@
     width: 100vw;
     font-size: 0.7em;
   }
+
+  .list li {
+    cursor: pointer;
+}

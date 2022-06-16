@@ -1,5 +1,11 @@
 import styles from "../styles/Topbar.module.css";
-import { BsGrid3X3GapFill } from "react-icons/bs";
+import Link from "next/link";
+import {
+  BsFillPersonFill,
+  BsGeoAltFill,
+  BsGrid3X3GapFill,
+  BsTelephoneFill,
+} from "react-icons/bs";
 
 function Topbar() {
   return (
@@ -9,11 +15,20 @@ function Topbar() {
           <BsGrid3X3GapFill />
           &nbsp;Offers on top deal and Discount
         </li>
-        <li>Select Location</li>
+        <li>
+          <BsGeoAltFill /> Select Location
+        </li>
         <li>Track Order</li>
-        <li>Phone</li>
-        <li>Login</li>
-        <li>Register</li>
+        <li>
+          <BsTelephoneFill />
+          &nbsp;0722 345 678
+        </li>
+        <li>
+          <Link href={""}>Login</Link>
+        </li>
+        <li>
+          <BsFillPersonFill /> Register
+        </li>
       </ul>
     </div>
   );

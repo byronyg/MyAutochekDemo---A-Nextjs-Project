@@ -23,10 +23,13 @@ const Footer = () => {
               <h4>Categories</h4>
               <ul className={styles.ul}>
                 <li>
-                  <a href="mailto:hello@cashia.com">hello@cashia.com</a>
+                  <a href="#">Location</a>
                 </li>
                 <li>
-                  <a href="tel:+254115777777">0115 777 777</a>
+                  <a href="#">hello@myautochek.demo</a>
+                </li>
+                <li>
+                  <a href="#">0722 222 222</a>
                 </li>
               </ul>
             </div>
@@ -40,13 +43,13 @@ const Footer = () => {
               </ul>
             </div>
             <div className={styles.footercol}>
-              <h4>address</h4>
+              <h4>Address</h4>
               <span className={styles.addy}>
                 <ul className={styles.ul}>
-                  <li>
-                    The Gallant Mall, Westlands, <br />
-                    Nairobi, Kenya.
-                  </li>
+                  <li>Link</li>
+                  <li>Link</li>
+                  <li>Link</li>
+                  <li>Link</li>
                 </ul>
               </span>
             </div>
