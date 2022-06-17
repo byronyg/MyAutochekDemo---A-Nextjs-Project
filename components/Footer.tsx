@@ -1,3 +1,5 @@
+import Image from "next/image";
+import logo from "../assets/logo.jpg";
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
@@ -7,11 +9,12 @@ const Footer = () => {
         <div>
           <div className={styles.row}>
             <div className={styles.footercol}>
-              <img
+              <Image
                 className="nav-logo"
-                src="https://i0.wp.com/oseikromtv.com/wp-content/uploads/2022/02/47116/autochek-africa-new-employment-opportunity.png"
-                alt=""
-                width="100px"
+                src={logo}
+                alt="Logo"
+                width="100"
+                height="30"
               />
               <ul className={styles.ul}>
                 <li>Link</li>

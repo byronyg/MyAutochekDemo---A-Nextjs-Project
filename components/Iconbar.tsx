@@ -1,19 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BsFillBasket3Fill } from "react-icons/bs";
+import logo from "../assets/mainlogo.png";
 import styles from "../styles/Iconbar.module.css";
 
 export const Iconbar = () => {
-
   return (
     <div className={styles.wrapper}>
       <div>
         <Link href="/">
-        <img
-          className="nav-logo"
-          src="https://media.autochek.africa/file/publicAssets/full-color-logo-new.png"
-          alt=""
-          width="150px"
-        />
+          <Image
+            className="nav-logo"
+            src={logo}
+            alt="Logo"
+            width="150"
+            height="36"
+          />
         </Link>
       </div>
       <div className={styles.search}>
