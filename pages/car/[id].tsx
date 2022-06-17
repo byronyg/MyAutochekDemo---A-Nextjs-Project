@@ -1,27 +1,71 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AiFillCar } from "react-icons/ai";
 import { GetServerSideProps, NextPage } from "next";
 import Image from "next/image";
 import styles from "./CarDetails.module.css";
 
-const CarListing: NextPage = ({ data, extraFeatures }: any) => {
-  console.log("EXTRA FEATURES: ", extraFeatures);
-
+const CarListing: NextPage = ({ data, extraFeatures, carMedia }: any) => {
+  const [currentIndex, setCurrentIndex] = useState(2);
+  console.log("CAR MEDIA: ", carMedia);
   const features = Object.entries(extraFeatures);
+
+  const onNextMedia = () => {
+        console.log("onnext");
+
+    setCurrentIndex((currentIndex + 1) % (carMedia.length))
+  }
+  const onPreviousMedia = () => {
+    if(currentIndex === 0) {
+      setCurrentIndex(carMedia.length -1 )
+    }else {
+       setCurrentIndex(currentIndex - 1);
+    }
+   
+  }
+
+  const renderMedia = useMemo( () => {
+   const current = !carMedia.length ? {type: 'image', url: data.imageUrl}  : carMedia[currentIndex];
+  
+    return(
+      <div className={styles.imageWrapper}>
+        {
+          current.type.includes("vid") ? (<video width="100%" controls>
+                      <source src={current.url} type="video/mp4" />
+                    </video>) : (<Image
+            src={current.url}
+            alt={current.url}
+            layout={"fill"}
+            objectFit={"contain"}
+          />)
+        }
+      </div>
+    )
+  }, [currentIndex])
+
   return (
     <div className="page">
       <div className={styles.container}>
         <div className={styles.content}>
           <h1>{data.carName}</h1>
           <div className={styles.contentRow}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={data.imageUrl}
-                alt={data.imageUrl}
-                layout={"fill"}
-                objectFit={"contain"}
-              />
-            </div>
+
+              <div className={styles.simpleCarousel}>
+                {renderMedia}
+                <div
+                  className={styles.carouselButtons}
+                >
+                  <button className="primary-button"
+                    onClick={onPreviousMedia}
+                  >
+                    Previous
+                  </button>
+                  <span>{currentIndex + 1} of {carMedia.length}</span>
+                  <button className="primary-button" onClick={onNextMedia}>Next</button>
+                </div>
+              </div>
+            {/* </div> */}
+
             <div className={styles.extraFeatures}>
               <h2>Additional Features</h2>
               <div className={styles.detailsWrapper}>
@@ -82,11 +126,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(
     `https://api.staging.myautochek.com/v1/inventory/car/${id}`
   );
-  // console.log(res);
-
   const data = await res.json();
-  console.log(data);
-
   const {
     vin,
     model: { wheelType },
@@ -119,13 +159,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     "Financing Available": hasFinancing ? "Yes" : "No",
   };
 
-  // if (!data) {
-  //   return "notFound";
-  // }
+  const mediaRes = await fetch(
+    `https://api.staging.myautochek.com/v1/inventory/car_media?carId=${id}`
+  );
+  const mediaData = await mediaRes.json();
+
+  const carMedia = mediaData.carMediaList;
   return {
     props: {
       data,
       extraFeatures,
+      carMedia,
     },
   };
 };
