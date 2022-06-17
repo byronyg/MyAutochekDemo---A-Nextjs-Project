@@ -6,6 +6,8 @@ const nextConfig = {
       "https://api.staging.myautochek.com",
       "storage.googleapis.com",
       "www.flaticon.com",
+      "media.autochek.africa",
+      "images.unsplash.com"
     ],
   },
 };

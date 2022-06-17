@@ -1,7 +1,5 @@
 .container {
-  max-width: 720px;
-  border: 1px solid red;
-  /* margin-left: 100px; */
+  max-width: 80%;
 }
 .cardholder {
   display: flex;
@@ -17,10 +15,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 4px;
-  border: 1px solid black;
-  width: 180px;
-  height: 240px;
+  box-shadow: 0 7px 14.8px 3.2px rgb(2 7 1 / 4%);
+  width: 120px;
+  height: 150px;
   margin: 5px;
+  cursor: pointer;
 }
 
 .card > img {height: 80%;}

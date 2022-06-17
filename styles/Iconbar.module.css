@@ -5,6 +5,7 @@
     height: 60px;
     padding-top: 15px;
     box-shadow: 0 4px 4px rgb(0 0 0 / 10%);;
+    width: 100%;
   }
 .search {
   display: flex;

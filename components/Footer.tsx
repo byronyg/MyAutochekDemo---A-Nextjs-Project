@@ -2,7 +2,7 @@ import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.footer}>
         <div>
           <div className={styles.row}>

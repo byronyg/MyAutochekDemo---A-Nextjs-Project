@@ -4,28 +4,23 @@ import { Carousel } from "react-responsive-carousel";
 import car1 from "../assets/car1.jpeg";
 import car2 from "../assets/2.jpeg";
 import car3 from "../assets/3.jpeg";
+
+const images = [car1, car2, car3];
 const Imageslider = () => {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Carousel>
-        <div>
-          {/* <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20211213172224/1.png"
-            alt="image1"
-          /> */}
-          <Image
-            src={car1}
-            layout="responsive"
-            alt="image1"
-            placeholder="blur"
-          />
-        </div>
-        <div>
-          <Image src={car2} layout="responsive" alt="image1" />
-        </div>
-        <div>
-          <Image src={car3} layout="responsive" alt="image1" />
-        </div>
+        {images.map((img, i) => (
+          <div>
+            <Image
+              key={`carousel-image-${i}`}
+              src={img}
+              layout="responsive"
+              alt="image1"
+              placeholder="blur"
+            />
+          </div>
+        ))}
       </Carousel>
     </div>
   );

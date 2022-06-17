@@ -8,7 +8,7 @@ const AllBrands = (props: any) => {
       <div className={styles.cardholder}>
         {props.brands.map((item: any) => (
           <div key={`popular_brands_${item.id}`} className={styles.card}>
-            {item.name}
+            {/* {item.name} */}
             <Image
               src={item.imageUrl}
               alt={item.name}

@@ -5,9 +5,9 @@
     list-style: none;
     align-items: center;
     height: 60px;
-    /* justify-content: space-between; */
+    justify-content: space-evenly;
     align-items: center;
     width: 100vw;
-    border: 1px solid red;
     margin: 0;
+    cursor: pointer;
   }

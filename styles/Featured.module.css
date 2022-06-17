@@ -1,6 +1,17 @@
 .container {
-  max-width: 720px;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 100PX;
+  /* margin-left: 100px; */
+}
+.featuredWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 100px;
   /* margin-left: 100px; */
 }
 .cardholder {
@@ -24,3 +35,4 @@
 }
 
 .card > img {height: 80%;}
+
