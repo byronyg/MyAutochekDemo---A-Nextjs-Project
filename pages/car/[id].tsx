@@ -17,6 +17,7 @@ const CarListing: NextPage = ({ data, extraFeatures }: any) => {
             <div className={styles.imageWrapper}>
               <Image
                 src={data.imageUrl}
+                alt={data.imageUrl}
                 layout={"fill"}
                 objectFit={"contain"}
               />

@@ -11,12 +11,11 @@ const Imageslider = () => {
     <div style={{ width: "100%" }}>
       <Carousel>
         {images.map((img, i) => (
-          <div>
+          <div key={`carousel-image-${i}`}>
             <Image
-              key={`carousel-image-${i}`}
               src={img}
               layout="responsive"
-              alt="image1"
+              alt={`image-${i}`}
               placeholder="blur"
             />
           </div>
