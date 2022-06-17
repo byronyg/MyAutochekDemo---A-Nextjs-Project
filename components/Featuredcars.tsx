@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Featured.module.css";
-import Listing from '../components/Listing';
+import Listing from "../components/Listing";
 import Link from "next/link";
 
 const Featuredcars = (props: any) => {
@@ -10,7 +10,7 @@ const Featuredcars = (props: any) => {
     fetch("https://api.staging.myautochek.com/v1/inventory/car/search")
       .then((res) => res.json())
       .then((data) => {
-        console.log("FEATURED: ", data.result)
+        console.log("FEATURED: ", data.result);
         setData(data.result);
       });
   }, []);
@@ -20,7 +20,7 @@ const Featuredcars = (props: any) => {
       <div className={styles.featuredWrapper}>
         <div className={styles.cardholder}>
           {data.map((item: any, i: number) => (
-            <Listing data={item} />
+            <Listing key={item.id} data={item} />
           ))}
         </div>
       </div>
