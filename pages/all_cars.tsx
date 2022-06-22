@@ -54,13 +54,13 @@ export default function AllCars({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  // console.log(context);
+  console.log(context);
   const page = context.query.page;
   // lets assume there is a page param in this endpoint for pagination purposes
   // this has not been explicitly provided in the material related to this task
   // this implementation gives a rough idea of how to fetch the next page with ssr
   const res = await fetch(
-    `https://api.staging.myautochek.com/v1/inventory/car/search?currentPage=${page}`
+    `https://api.staging.myautochek.com/v1/inventory/car/search`
   );
   const data = await res.json();
   const {
@@ -68,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
     pagination: { total, pageSize },
   } = data;
 
-  // console.log("ALL CARS: ", data);
+  console.log("ALL CARS: ", data);
 
   return {
     props: {
