@@ -5,11 +5,13 @@ import Listing from "../components/Listing";
 import styles from "../styles/AllCars.module.css";
 
 export default function AllCars({
+  data,
   allCars,
   currentPage,
   total,
   pageSize,
 }: any) {
+  console.log({ data });
   const router = useRouter();
 
   const goToPrevious = () => {
@@ -32,7 +34,7 @@ export default function AllCars({
     <div className="page">
       <div className={styles.content}>
         <div className={styles.featuredWrapper}>
-          {allCars.map((car: any) => (
+          {data.result.map((car: any) => (
             <Listing key={car.id} data={car} />
           ))}
         </div>
@@ -72,6 +74,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
 
   return {
     props: {
+      data,
       allCars: result,
       currentPage: page,
       total,
