@@ -9,7 +9,10 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = ({ brands, allCars }: any) => {
   console.log("Fromprops: ", brands);
   return (
-    <div className="page" style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+    <div
+      className="page"
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <Head>
         <title>My Autochek Demo</title>
         <link rel="icon" type="/favicon.ico" />
@@ -39,9 +42,7 @@ export const getServerSideProps: GetServerSideProps = async (someObject) => {
 
   const data = await res.json();
 
-
   const brands = data.makeList;
-
 
   return {
     props: {

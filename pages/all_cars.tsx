@@ -38,11 +38,15 @@ export default function AllCars({
         </div>
 
         <div className={styles.paginationWrapper}>
-          <button className="primary-button" onClick={goToPrevious}>Previous</button>
+          <button className="primary-button" onClick={goToPrevious}>
+            Previous
+          </button>
           <span>
             Page {+currentPage} of {Math.ceil(total / pageSize)}
           </span>
-          <button className="primary-button" onClick={goToNext}>Next Page</button>
+          <button className="primary-button" onClick={goToNext}>
+            Next Page
+          </button>
         </div>
       </div>
     </div>
@@ -50,13 +54,13 @@ export default function AllCars({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  console.log(context);
+  // console.log(context);
   const page = context.query.page;
   // lets assume there is a page param in this endpoint for pagination purposes
   // this has not been explicitly provided in the material related to this task
   // this implementation gives a rough idea of how to fetch the next page with ssr
   const res = await fetch(
-    `https://api.staging.myautochek.com/v1/inventory/car/search?next_page=${page}`
+    `https://api.staging.myautochek.com/v1/inventory/car/search?currentPage=${page}`
   );
   const data = await res.json();
   const {
@@ -64,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
     pagination: { total, pageSize },
   } = data;
 
-  console.log("ALL CARS: ", data);
+  // console.log("ALL CARS: ", data);
 
   return {
     props: {

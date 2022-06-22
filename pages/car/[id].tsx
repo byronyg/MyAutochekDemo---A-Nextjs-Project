@@ -7,41 +7,44 @@ import styles from "./CarDetails.module.css";
 
 const CarListing: NextPage = ({ data, extraFeatures, carMedia }: any) => {
   const [currentIndex, setCurrentIndex] = useState(2);
-  console.log("CAR MEDIA: ", carMedia);
+  // console.log("CAR MEDIA: ", carMedia);
   const features = Object.entries(extraFeatures);
 
   const onNextMedia = () => {
-        console.log("onnext");
+    // console.log("onnext");
 
-    setCurrentIndex((currentIndex + 1) % (carMedia.length))
-  }
+    setCurrentIndex((currentIndex + 1) % carMedia.length);
+  };
   const onPreviousMedia = () => {
-    if(currentIndex === 0) {
-      setCurrentIndex(carMedia.length -1 )
-    }else {
-       setCurrentIndex(currentIndex - 1);
+    if (currentIndex === 0) {
+      setCurrentIndex(carMedia.length - 1);
+    } else {
+      setCurrentIndex(currentIndex - 1);
     }
-   
-  }
+  };
 
-  const renderMedia = useMemo( () => {
-   const current = !carMedia.length ? {type: 'image', url: data.imageUrl}  : carMedia[currentIndex];
-  
-    return(
+  const renderMedia = useMemo(() => {
+    const current = !carMedia.length
+      ? { type: "image", url: data.imageUrl }
+      : carMedia[currentIndex];
+
+    return (
       <div className={styles.imageWrapper}>
-        {
-          current.type.includes("vid") ? (<video width="100%" controls>
-                      <source src={current.url} type="video/mp4" />
-                    </video>) : (<Image
+        {current.type.includes("vid") ? (
+          <video width="100%" controls>
+            <source src={current.url} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
             src={current.url}
             alt={current.url}
             layout={"fill"}
             objectFit={"contain"}
-          />)
-        }
+          />
+        )}
       </div>
-    )
-  }, [currentIndex])
+    );
+  }, [currentIndex]);
 
   return (
     <div className="page">
@@ -49,21 +52,20 @@ const CarListing: NextPage = ({ data, extraFeatures, carMedia }: any) => {
         <div className={styles.content}>
           <h1>{data.carName}</h1>
           <div className={styles.contentRow}>
-
-              <div className={styles.simpleCarousel}>
-                {renderMedia}
-                <div
-                  className={styles.carouselButtons}
-                >
-                  <button className="primary-button"
-                    onClick={onPreviousMedia}
-                  >
-                    Previous
-                  </button>
-                  <span>{currentIndex + 1} of {carMedia.length}</span>
-                  <button className="primary-button" onClick={onNextMedia}>Next</button>
-                </div>
+            <div className={styles.simpleCarousel}>
+              {renderMedia}
+              <div className={styles.carouselButtons}>
+                <button className="primary-button" onClick={onPreviousMedia}>
+                  Previous
+                </button>
+                <span>
+                  {currentIndex + 1} of {carMedia.length}
+                </span>
+                <button className="primary-button" onClick={onNextMedia}>
+                  Next
+                </button>
               </div>
+            </div>
             {/* </div> */}
 
             <div className={styles.extraFeatures}>

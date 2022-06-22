@@ -9,13 +9,15 @@ export const Iconbar = () => {
     <div className={styles.wrapper}>
       <div>
         <Link href="/">
-          <Image
-            className="nav-logo"
-            src={logo}
-            alt="Logo"
-            width="150"
-            height="36"
-          />
+          <a>
+            <Image
+              className="nav-logo"
+              src={logo}
+              alt="Logo"
+              width="150"
+              height="36"
+            />
+          </a>
         </Link>
       </div>
       <div className={styles.search}>

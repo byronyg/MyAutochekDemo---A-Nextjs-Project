@@ -23,9 +23,7 @@ function Topbar() {
           <BsTelephoneFill />
           &nbsp;0722 345 678
         </li>
-        <li>
-          <Link href={""}>Login</Link>
-        </li>
+        <li>Login</li>
         <li>
           <BsFillPersonFill /> Register
         </li>
